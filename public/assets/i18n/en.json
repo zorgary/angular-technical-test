@@ -1,5 +1,15 @@
 {
-    "sample": {
-        "text" : "Hello world !"
+    "languages": {
+        "en": "English",
+        "es": "Spanish"
+    },
+    "header": {
+        "menu" : "Menu",
+        "links" : {
+            "home": "Home",
+            "songs": "Songs",
+            "artists": "Artists",
+            "record-labels": "Record Labels"
+        }
     }
 }

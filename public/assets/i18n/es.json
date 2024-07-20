@@ -1,5 +1,15 @@
 {
-    "sample": {
-        "text" : "Hola mundo !"
+    "languages": {
+        "en": "Inglés",
+        "es": "Español"
+    },
+    "header": {
+        "menu" : "Menú",
+        "links" : {
+            "home": "Inicio",
+            "songs": "Canciones",
+            "artists": "Artistas",
+            "record-labels": "Discográficas"
+        }
     }
 }

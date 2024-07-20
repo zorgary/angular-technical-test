@@ -1,14 +1,2 @@
-<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-    <p class="text-2xl font-semibold text-gray-700 bg-white p-4 rounded shadow-md mb-6">
-        {{ 'sample.text' | translate }}
-    </p>
-    <div class="space-x-4">
-      <button (click)="changeLanguage('en')" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300 ease-in-out">
-        English
-      </button>
-      <button (click)="changeLanguage('es')" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 transition duration-300 ease-in-out">
-        Español
-      </button>
-    </div>
-    <router-outlet></router-outlet>
-</div>  
+<app-header></app-header>
+<router-outlet></router-outlet>
