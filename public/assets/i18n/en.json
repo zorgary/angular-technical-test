@@ -11,5 +11,14 @@
             "artists": "Artists",
             "record-labels": "Record Labels"
         }
+    },
+    "home": {
+        "title": "Technical Test Project",
+        "description": "This project is designed to showcase proficiency in Angular by managing songs. It highlights practical skills and understanding of the technology.",
+        "linkedin-button": "LinkedIn"
+    },
+    "songs": {
+        "title": "Song List",
+        "year": "Year"
     }
 }
