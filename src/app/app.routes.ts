@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
-    // { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirige a la página de inicio por defecto
-    // { path: 'home', component: HomeComponent }, // Ruta para el componente de inicio
-    // { path: 'songs', component: SongComponent }, // Ruta para el componente de canciones
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    { path: '**', redirectTo: '/home' } // Fallback
 ];
