@@ -15,6 +15,10 @@
     "home": {
         "title": "Proyecto de Prueba Técnica",
         "description": "Este proyecto está diseñado para demostrar el dominio de Angular mediante la gestión de canciones. Resalta habilidades prácticas y comprensión de la tecnología.",
-        "linkedin-button": "Ver mi LinkedIn"
+        "linkedin-button": "LinkedIn"
+    },
+    "songs": {
+        "title": "Listado de Canciones",
+        "year": "Año"
     }
 }

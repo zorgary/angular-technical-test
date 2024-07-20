@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { ClickOutsideDirective } from '../../utils/click-outside.directive';
+import { ClickOutsideDirective } from '../../utils/directives/click-outside.directive';
 import { Subject, takeUntil } from 'rxjs';
 import { NavLink } from '../../models/nav-link.model';
 
