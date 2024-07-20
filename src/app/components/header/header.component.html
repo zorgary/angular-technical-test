@@ -1,0 +1,65 @@
+<nav class="bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+
+      <!-- Desktop Navigation Menu -->
+      <div class="hidden md:flex md:items-center md:space-x-8">
+        <ng-container *ngFor="let link of navLinks">
+          <a [routerLink]="[link.route]"
+             [ngClass]="{'border': isActiveRoute(link.route)}" 
+             class="text-white flex items-center hover:bg-white hover:text-black transition-colors duration-300 p-2 rounded">
+            <img class="svg-icon w-6 h-6 mr-3" [src]="link.icon" alt="{{ link.alt }}" />
+            <p>{{ link.label | translate }}</p>
+          </a>
+        </ng-container>
+      </div>
+
+      <!-- Hamburger Menu Button -->
+      <div class="flex md:hidden items-center justify-between w-full">
+        <button (click)="toggleMobileMenu()" class="text-white focus:outline-none">
+          <img class="w-6 h-6" src="assets/icons/menu.svg" alt="Menu" />
+        </button>
+        <p class="text-xl flex-1 text-center font-bold text-white">{{ getLinkLabel(currentRoute) | translate }}</p>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div *ngIf="mobileMenuOpen" class="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
+        <div class="fixed inset-y-0 w-[60vw] bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg p-4" clickOutside (clickOutside)="closeMobileMenu()">
+          <div class="flex justify-between mb-4">
+            <p class="text-xl flex-1 font-bold text-white">{{ "header.menu" | translate }}</p>
+            <button (click)="toggleMobileMenu()" class="text-white">
+              <img class="w-6 h-6" src="assets/icons/close.svg" alt="Close" />
+            </button>
+          </div>
+          <div class="flex flex-col space-y-4 mt-16">
+            <ng-container *ngFor="let link of navLinks">
+              <a [routerLink]="[link.route]" 
+                 [ngClass]="{'border': isActiveRoute(link.route)}" 
+                 class="text-white flex items-center hover:bg-white hover:text-black transition-colors duration-300 p-2 rounded"
+                 (click)="toggleMobileMenu()">
+                <img class="svg-icon w-6 h-6 mr-3" [src]="link.icon" alt="{{ link.alt }}" />
+                <p>{{ link.label | translate }}</p>
+              </a>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <!-- Language Selector -->
+      <div class="md:flex flex-1 justify-end items-center">
+        <div class="relative" clickOutside (clickOutside)="closeLanguageDropdown()">
+          <button (click)="toggleLanguageDropdown()" class="inline-flex justify-center items-center w-max rounded px-4 py-2 hover:bg-white" id="menu-button" aria-expanded="true" aria-haspopup="true">
+            <img class="svg-icon w-6 h-6" src="assets/icons/language.svg" alt="Language Selector" />
+          </button>
+          <div *ngIf="dropdownOpen" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
+            <div class="py-1 px-1" role="none">
+              <a (click)="changeLanguage('en')" class="rounded cursor-pointer hover:bg-gray-200 block px-4 py-2" role="menuitem">English</a>
+              <a (click)="changeLanguage('es')" class="rounded cursor-pointer hover:bg-gray-200 block px-4 py-2" role="menuitem">Español</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
