@@ -35,6 +35,16 @@ export class SongsService {
     const url = `${this.baseUrl}${this.songEndpoint}/${songId}`;
     return this.http.delete<void>(url);
   }
+
+  createSong(body : Song): Observable<Song> {
+    const url = `${this.baseUrl}${this.songEndpoint}`;
+    return this.http.post<Song>(url, body);
+  }
+
+  updateSong(body : Song, songId : number): Observable<Song> {
+    const url = `${this.baseUrl}${this.songEndpoint}/${songId}`;
+    return this.http.put<Song>(url, body);
+  }
   
   // Artists
 
@@ -53,6 +63,11 @@ export class SongsService {
   getRecordLabels(): Observable<RecordLabel[]> {
     const url = `${this.baseUrl}${this.recordLabelEndpoint}`;
     return this.http.get<RecordLabel[]>(url);
+  }
+
+  updateSongInRecordLabel(recordLabelId: string, recordLabelSongs: number[]): Observable<RecordLabel> {
+    const url = `${this.baseUrl}${this.recordLabelEndpoint}/${recordLabelId}`;
+    return this.http.patch<RecordLabel>(url, { songs: recordLabelSongs });
   }
 
 }

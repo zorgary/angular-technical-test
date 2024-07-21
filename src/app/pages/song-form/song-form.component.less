@@ -1,0 +1,39 @@
+:host ::ng-deep .p-multiselect {
+    border-width: 1px;
+    border-color: #D1D5DB;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+    transition-property: border-color, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    width: 100%;
+    max-width: 28rem;
+  }
+  
+  :host ::ng-deep .p-multiselect:focus {
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 1px #3B82F6;
+  }
+
+  .btn-action {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 18px 20px;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+    
+  .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }

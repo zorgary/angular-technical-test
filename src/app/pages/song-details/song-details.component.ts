@@ -86,7 +86,7 @@ export class SongDetailsComponent implements OnInit {
   }
 
   editSong() {
-    
+    this.router.navigate(['/songs', this.songId, 'edit']);
   }
 
   removeSong() {

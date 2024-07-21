@@ -69,6 +69,10 @@ export class SongListComponent implements OnInit {
     this.router.navigate(['/songs', songId]);
   }
 
+  navigateToForm() {
+    this.router.navigate(['/songs', 'new']);
+  }
+
   formatSongDuration(seconds: number): string {
     return formatDuration(seconds);
   }
