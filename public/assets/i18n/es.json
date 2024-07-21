@@ -28,7 +28,12 @@
         "country": "País",
         "year": "Año",
         "duration": "Duración",
-        "rating": "Calificación"
+        "rating": "Calificación",
+        "removal-confirm-title": "Confirmar eliminación",
+        "removal-confirm-message": "¿Estás seguro de que deseas eliminar esta canción? Esta acción no se puede deshacer.",
+        "cancel-delete": "Cancelar",
+        "confirm-delete": "Confirmar",
+        "removal-in-progress": "Eliminando..."
     },
     "errors": {
         "song-details": "Error: No se han podido obtener los detalles de la canción",

@@ -13,12 +13,15 @@ import { FormsModule } from '@angular/forms';
 import { formatDuration } from '../../utils/time-formatters';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-song-details',
   standalone: true,
   imports: [CommonModule, FormsModule, TranslateModule,
-    ProgressSpinnerModule, RatingModule, ChipModule],
+    ProgressSpinnerModule, RatingModule, ChipModule, ConfirmDialogModule],
+  providers: [ConfirmationService],
   templateUrl: './song-details.component.html',
   styleUrl: './song-details.component.less'
 })
@@ -28,9 +31,11 @@ export class SongDetailsComponent implements OnInit {
   artist: Artist = {} as Artist;
   recordLabels: RecordLabel[] = [];
   loading: boolean = true;
+  removing: boolean = false;
   error: boolean = false;
 
-  constructor(private songsService: SongsService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private songsService: SongsService, private route: ActivatedRoute, 
+    private router: Router, private confirmationService: ConfirmationService,) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -78,6 +83,31 @@ export class SongDetailsComponent implements OnInit {
 
   formatSongDuration(seconds: number): string {
     return formatDuration(seconds);
+  }
+
+  editSong() {
+    
+  }
+
+  removeSong() {
+    this.closeMessage()
+    this.removing = true;
+    this.songsService.removeSong(this.songId).subscribe({
+      next: () => {
+        this.goBack();
+      },
+      error: () => {
+        this.removing = false;
+      }
+    })
+  }
+
+  confirmRemoveDialog() { 
+    this.confirmationService.confirm({}); 
+  }
+
+  closeMessage() {
+    this.confirmationService.close();
   }
 
 }

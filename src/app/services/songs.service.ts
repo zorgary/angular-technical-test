@@ -19,7 +19,8 @@ export class SongsService {
   
   constructor(private http: HttpClient) { }
 
-  // - Songs -
+  // Songs
+
   getSongs(): Observable<Song[]> {
     const url = `${this.baseUrl}${this.songEndpoint}`;
     return this.http.get<Song[]>(url);
@@ -30,7 +31,13 @@ export class SongsService {
     return this.http.get<Song>(url);
   }
 
-  // - Artists -
+  removeSong(songId: number): Observable<void> {
+    const url = `${this.baseUrl}${this.songEndpoint}/${songId}`;
+    return this.http.delete<void>(url);
+  }
+  
+  // Artists
+
   getArtists(): Observable<Artist[]> {
     const url = `${this.baseUrl}${this.artistEndpoint}`;
     return this.http.get<Artist[]>(url);
@@ -41,7 +48,8 @@ export class SongsService {
     return this.http.get<Artist>(url);
   }
 
-  // - Record Labels -
+  // Record Labels
+
   getRecordLabels(): Observable<RecordLabel[]> {
     const url = `${this.baseUrl}${this.recordLabelEndpoint}`;
     return this.http.get<RecordLabel[]>(url);

@@ -28,7 +28,12 @@
         "country": "Country",
         "year": "Year",
         "duration": "Duration",
-        "rating": "Rating"
+        "rating": "Rating",
+        "removal-confirm-title": "Confirm removal",
+        "removal-confirm-message": "Are you sure you want to remove this song? This action cannot be undone.",
+        "cancel-delete": "Cancel",
+        "confirm-delete": "Confirm",
+        "removal-in-progress": "Removing..."
     },
     "errors": {
         "song-details": "Error: Could not retrieve song details",
