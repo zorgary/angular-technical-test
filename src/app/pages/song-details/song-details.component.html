@@ -1,0 +1,99 @@
+<div class="main-content min-h-screen flex justify-center px-4 pb-8 sm:px-6 lg:px-8">
+    <div class="w-full max-w-screen-xl p-4">
+      <ng-container *ngIf="!loading else loadingContent">
+        <div *ngIf="!error" class="song-details-card p-4 flex flex-col lg:flex-row gap-4">
+            <div class="flex flex-col items-start lg:w-1/2 ">
+                <div class="flex items-center mb-4">
+                    <img (click)="goBack()" class="w-10 h-10 mr-6 cursor-pointer" src="assets/icons/go-back.svg" alt="Menu" />
+                    <div>
+                        <h2 class="text-3xl font-extrabold text-gray-900 mb-2">{{ song.title }}</h2>
+                        <p class="text-xl text-gray-700">{{ artist.name }}</p>
+                    </div>
+                </div>
+                <img [src]="song.poster" alt="{{ song.title }}" class="w-full h-auto max-w-[400px] mb-4 object-cover" style="aspect-ratio: 2 / 3;" />
+            </div>
+            <div class="flex-grow lg:w-1/2 content-center">
+                <div class="mb-4">
+                    <p class="font-bold text-gray-900 mb-1">
+                        {{ 'song-details.genres' | translate }}
+                    </p>
+                    <div class="genre-chips mb-4">
+                        <p *ngFor="let genre of song.genre">
+                            <p-chip [label]="genre"></p-chip>
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="mb-4">
+                    <p class="font-bold text-gray-900 mb-1">
+                        {{ 'song-details.record-labels' | translate }}
+                    </p>
+                    <div class="genre-chips mb-4" *ngIf="recordLabels.length > 0; else noRecordLabels">
+                        <p *ngFor="let recordLabel of recordLabels">
+                            <p-chip [label]="recordLabel.name"></p-chip>
+                        </p>
+                    </div>
+                    
+                    <ng-template #noRecordLabels>
+                        <p class="text-gray-600">
+                            N/A
+                        </p>
+                    </ng-template>
+
+                </div>
+            
+                <div class="mb-4">
+                    <p class="font-bold text-gray-900 mb-1">
+                        {{ 'song-details.country' | translate }}
+                    </p>
+                    <p class="text-gray-600">
+                        {{ song.country }}
+                    </p>
+                </div>
+            
+                <div class="mb-4">
+                    <p class="font-bold text-gray-900 mb-1">
+                        {{ 'song-details.year' | translate }}
+                    </p>
+                    <p class="text-gray-600">
+                        {{ song.year }}
+                    </p>
+                </div>
+            
+                <div class="mb-4">
+                    <p class="font-bold text-gray-900 mb-1">
+                        {{ 'song-details.duration' | translate }}
+                    </p>
+                    <p class="text-gray-600">
+                        {{ formatSongDuration(song.duration) }}
+                    </p>
+                </div>
+            
+                <div class="mb-4">
+                    <p class="font-bold text-gray-900 mb-1">
+                        {{ 'song-details.rating' | translate }}
+                    </p>
+                    <div class="flex gap-3 items-center">
+                        <p-rating [ngModel]="song.rating / 2" [readonly]="true" [cancel]="false"></p-rating>
+                        <p class="text-gray-600 mt-[-2px]">({{ song.rating }})</p>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <!-- Error -->
+        <div *ngIf="error" class="text-center text-gray-700 text-xl mt-10">
+            {{ 'errors.song-details' | translate }}
+        </div>
+      </ng-container>
+      <!-- Loading spinner -->
+      <ng-template #loadingContent>
+        <div class="flex justify-center items-center min-h-screen">
+          <p-progressSpinner 
+            strokeWidth="3" 
+            animationDuration="1s" 
+            styleClass="w-4rem h-4rem" />
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  

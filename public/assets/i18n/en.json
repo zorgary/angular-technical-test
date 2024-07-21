@@ -19,6 +19,20 @@
     },
     "songs": {
         "title": "Song List",
-        "year": "Year"
+        "year": "Year",
+        "not-found": "No songs found"
+    },
+    "song-details": {
+        "genres": "Genres",
+        "record-labels": "Record Labels",
+        "country": "Country",
+        "year": "Year",
+        "duration": "Duration",
+        "rating": "Rating"
+    },
+    "errors": {
+        "song-details": "Error: Could not retrieve song details",
+        "song-list": "Error: Could not retrieve the song list"
     }
+
 }

@@ -17,8 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navLinks : NavLink[] = [
     { route: '/home', icon: 'assets/icons/home.svg', label: 'header.links.home', alt: 'Home' },
     { route: '/songs', icon: 'assets/icons/songs.svg', label: 'header.links.songs', alt: 'Songs' },
-    { route: '', icon: 'assets/icons/artists.svg', label: 'header.links.artists', alt: 'Artists' },
-    { route: '', icon: 'assets/icons/record-labels.svg', label: 'header.links.record-labels', alt: 'Record Labels' }
+    { route: '#', icon: 'assets/icons/artists.svg', label: 'header.links.artists', alt: 'Artists' },
+    { route: '#', icon: 'assets/icons/record-labels.svg', label: 'header.links.record-labels', alt: 'Record Labels' }
   ];
 
   private unsubscribe$ = new Subject<void>();
@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   isActiveRoute(route: string): boolean {
-    return this.currentRoute === route;
+    return this.currentRoute.startsWith(route);
   }
 
   changeLanguage(lang: string) {
@@ -76,7 +76,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   getLinkLabel(route: string): string {
-    const link = this.navLinks.find(link => link.route === route);
+    const link = this.navLinks.find(link => route.startsWith(link.route));
     return link ? link.label : '';
   }
 }

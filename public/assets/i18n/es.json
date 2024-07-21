@@ -19,6 +19,19 @@
     },
     "songs": {
         "title": "Listado de Canciones",
-        "year": "Año"
+        "year": "Año",
+        "not-found": "No se han encontrado canciones"
+    },
+    "song-details": {
+        "genres": "Géneros",
+        "record-labels": "Discográficas",
+        "country": "País",
+        "year": "Año",
+        "duration": "Duración",
+        "rating": "Calificación"
+    },
+    "errors": {
+        "song-details": "Error: No se han podido obtener los detalles de la canción",
+        "song-list": "Error: No se ha podido obtener el listado de canciones"
     }
 }
