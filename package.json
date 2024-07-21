@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:json-server": "json-server --delay 1000 --watch src/app/mocks/mock.json",
+    "start:json-server": "json-server --delay 1000 src/app/mocks/mock.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
