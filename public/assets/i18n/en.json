@@ -35,6 +35,31 @@
         "confirm-delete": "Confirm",
         "removal-in-progress": "Removing..."
     },
+    "song-form": {
+        "editing-title": "Edit Song",
+        "creating-title": "Create Song",
+        "title": "Title",
+        "title-error": "Title is a required field",
+        "artist": "Artist",
+        "artist-error": "Artist is a required field",
+        "genres": "Genres",
+        "genres-error": "At least one genre is required",
+        "record-labels": "Record Labels",
+        "country": "Country",
+        "country-error": "Country is a required field",
+        "year": "Year",
+        "year-error": "Enter a valid year between 1900 and the current year",
+        "rating": "Rating",
+        "rating-error": "Rating must be between 0 and 10",
+        "poster": "Poster URL",
+        "poster-error": "Enter a valid URL",
+        "duration": "Duration (in seconds)",
+        "duration-error": "Duration must be a positive number from 0 to 1200 seconds",
+        "update": "Update",
+        "create": "Create",
+        "creation-in-progress": "Creating...",
+        "editing-in-progress": "Updating..."
+    },
     "errors": {
         "song-details": "Error: Could not retrieve song details",
         "song-list": "Error: Could not retrieve the song list"

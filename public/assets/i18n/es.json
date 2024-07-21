@@ -35,6 +35,31 @@
         "confirm-delete": "Confirmar",
         "removal-in-progress": "Eliminando..."
     },
+    "song-form": {
+        "editing-title": "Editar Canción",
+        "creating-title": "Crear Canción",
+        "title": "Título",
+        "title-error": "El título es un campo obligatorio",
+        "artist": "Artista",
+        "artist-error": "El artista es un campo obligatorio",
+        "genres": "Géneros",
+        "genres-error": "Se requiere al menos un género",
+        "record-labels": "Discográficas",
+        "country": "País",
+        "country-error": "El país es un campo obligatorio",
+        "year": "Año",
+        "year-error": "Ingrese un año válido entre 1900 y el año actual",
+        "rating": "Calificación",
+        "rating-error": "La calificación debe estar entre 0 y 10",
+        "poster": "URL del Poster",
+        "poster-error": "Ingrese una URL válida",
+        "duration": "Duración (en segundos)",
+        "duration-error": "La duración debe ser un número positivo entre 0 y 1200 segundos",
+        "update": "Actualizar",
+        "create": "Crear",
+        "creation-in-progress": "Creando...",
+        "editing-in-progress": "Actualizando..."
+    },
     "errors": {
         "song-details": "Error: No se han podido obtener los detalles de la canción",
         "song-list": "Error: No se ha podido obtener el listado de canciones"

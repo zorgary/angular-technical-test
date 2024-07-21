@@ -66,4 +66,10 @@
       {{ 'errors.song-list' | translate }}
     </div>
   </div>
+    <!-- Fixed Buttons -->
+    <div *ngIf="!loading" class="fixed-button">
+      <button class="btn-action btn-primary" (click)="navigateToForm()">
+          <img src="assets/icons/add.svg" alt="Add" class="action-icon" />
+      </button>
+  </div>
 </div>
