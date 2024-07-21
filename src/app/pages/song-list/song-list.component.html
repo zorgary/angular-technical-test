@@ -1,12 +1,12 @@
-<div class="main-content min-h-screen flex items-center justify-center px-4 pb-24 sm:px-6 lg:px-8">
+<div class="main-content min-h-screen flex justify-center px-4 pb-24 sm:px-6 lg:px-8">
   <div class="w-full max-w-screen-xl p-4">
     <h1 class="text-4xl font-extrabold text-gray-900 mt-4 mb-8 text-center">
       {{ 'songs.title' | translate }}
     </h1>
     <!-- Song cards -->
-    <ng-container *ngIf="!loading; else loadingContent">
+    <ng-container *ngIf="!loading else loadingContent">
       <div class="grid gap-4" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
-        <p-card *ngFor="let song of songs" [header]="song.title" class="h-card" [style]="{ height: '485px' }">
+        <p-card (click)="navigateToDetail(song.id)" *ngFor="let song of songs" [header]="song.title" class="h-card cursor-pointer" [style]="{ height: '485px' }">
           <ng-template pTemplate="header">
             <img alt="{{ song.title }}" [src]="song.poster" class="w-full h-48 object-cover" />
           </ng-template>
@@ -24,7 +24,7 @@
           <ng-template pTemplate="footer">
             <div class="flex justify-between items-center">
               <div class="flex gap-3 mt-2">
-                <p-rating [ngModel]="song.rating | divideByTwo" [readonly]="true" [cancel]="false" />
+                <p-rating [ngModel]="song.rating / 2" [readonly]="true" [cancel]="false" />
                 <p class="mt-[-2px]">({{song.rating}})</p>
               </div>
               <p-tag severity="contrast" value={{formatSongDuration(song.duration)}} />
@@ -57,6 +57,13 @@
         </div>
       </div>
     </ng-template>
-
+    <!-- Not Found -->
+    <div *ngIf="notFound" class="text-center text-gray-700 text-xl mt-10">
+      {{ 'songs.not-found' | translate }}
+    </div>
+    <!-- Error -->
+    <div *ngIf="error" class="text-center text-gray-700 text-xl mt-10">
+      {{ 'errors.song-list' | translate }}
+    </div>
   </div>
 </div>

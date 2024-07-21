@@ -8,7 +8,8 @@
       "year": 2007,
       "duration": 424,
       "rating": 9.27,
-      "artist": 1
+      "artist": 1,
+      "country": "USA"
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "year": 1967,
       "duration": 303,
       "rating": 8.99,
-      "artist": 2
+      "artist": 2,
+      "country": "UK"
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "year": 1974,
       "duration": 206,
       "rating": 6.25,
-      "artist": 2
+      "artist": 2,
+      "country": "UK"
     },
     {
       "id": 4,
@@ -38,7 +41,8 @@
       "year": 1965,
       "duration": 290,
       "rating": 6.66,
-      "artist": 4
+      "artist": 4,
+      "country": "UK"
     },
     {
       "id": 5,
@@ -48,7 +52,8 @@
       "year": 1982,
       "duration": 217,
       "rating": 8.36,
-      "artist": 5
+      "artist": 5,
+      "country": "Ireland"
     },
     {
       "id": 6,
@@ -58,7 +63,8 @@
       "year": 1995,
       "duration": 340,
       "rating": 7.99,
-      "artist": 1
+      "artist": 1,
+      "country": "USA"
     },
     {
       "id": 7,
@@ -68,7 +74,8 @@
       "year": 1972,
       "duration": 305,
       "rating": 6.77,
-      "artist": 5
+      "artist": 5,
+      "country": "Ireland"
     },
     {
       "id": 8,
@@ -78,7 +85,8 @@
       "year": 1973,
       "duration": 217,
       "rating": 8.36,
-      "artist": 4
+      "artist": 4,
+      "country": "UK"
     },
     {
       "id": 9,
@@ -88,7 +96,8 @@
       "year": 1997,
       "duration": 399,
       "rating": 8.07,
-      "artist": 6
+      "artist": 6,
+      "country": "USA"
     },
     {
       "id": 10,
@@ -98,7 +107,8 @@
       "year": 1960,
       "duration": 503,
       "rating": 9.99,
-      "artist": 7
+      "artist": 7,
+      "country": "USA"
     },
     {
       "id": 11,
@@ -108,7 +118,8 @@
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
-      "artist": 7
+      "artist": 7,
+      "country": "USA"
     }
   ],
   "artists": [

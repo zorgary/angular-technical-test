@@ -19,6 +19,24 @@
     },
     "songs": {
         "title": "Listado de Canciones",
-        "year": "Año"
+        "year": "Año",
+        "not-found": "No se han encontrado canciones"
+    },
+    "song-details": {
+        "genres": "Géneros",
+        "record-labels": "Discográficas",
+        "country": "País",
+        "year": "Año",
+        "duration": "Duración",
+        "rating": "Calificación",
+        "removal-confirm-title": "Confirmar eliminación",
+        "removal-confirm-message": "¿Estás seguro de que deseas eliminar esta canción? Esta acción no se puede deshacer.",
+        "cancel-delete": "Cancelar",
+        "confirm-delete": "Confirmar",
+        "removal-in-progress": "Eliminando..."
+    },
+    "errors": {
+        "song-details": "Error: No se han podido obtener los detalles de la canción",
+        "song-list": "Error: No se ha podido obtener el listado de canciones"
     }
 }

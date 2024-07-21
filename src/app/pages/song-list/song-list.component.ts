@@ -9,17 +9,19 @@ import { Song } from '../../models/song.model';
 import { formatDuration } from '../../utils/time-formatters';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { DivideByTwoPipe } from '../../utils/pipes/divide-by-two.pipe';
 import { Artist } from '../../models/artist.model';
 import { forkJoin } from 'rxjs';
 import { TagModule } from 'primeng/tag';
 import { TranslateModule } from '@ngx-translate/core';
 import { SkeletonModule } from 'primeng/skeleton';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-song-list',
   standalone: true,
-  imports: [CommonModule, TranslateModule, FormsModule, CardModule, RatingModule, ChipModule, TagModule, SkeletonModule, DivideByTwoPipe],
+  imports: [CommonModule, TranslateModule, FormsModule, 
+    CardModule, RatingModule, ChipModule, TagModule, SkeletonModule],
   templateUrl: './song-list.component.html',
   styleUrl: './song-list.component.less'
 })
@@ -28,8 +30,10 @@ export class SongListComponent implements OnInit {
   songs: Song[] = [];
   artists: { [key: number]: Artist } = {};
   loading: boolean = true;
+  notFound: boolean = false;
+  error: boolean = false;
 
-  constructor(private songsService: SongsService) { }
+  constructor(private songsService: SongsService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -37,21 +41,32 @@ export class SongListComponent implements OnInit {
 
   loadData(): void {
     forkJoin({
-      songs: this.songsService.getSongs().pipe(),
-      artists: this.songsService.getArtists().pipe()
+      songs: this.songsService.getSongs(),
+      artists: this.songsService.getArtists()
     }).subscribe({
       next: ({ songs, artists }) => {
         this.songs = songs;
+        if (this.songs.length === 0) this.notFound = true
         artists.forEach(artist => {
           this.artists[artist.id] = artist;
         });
         this.loading = false;
       },
-      error: (e) => {
+      error: (e: HttpErrorResponse) => {
         this.loading = false;
-        console.error('Error fetching data', e);
+        if (e instanceof HttpErrorResponse) {
+          if (e.status === 404) {
+            this.notFound = true;
+          } else {
+            this.error = true;
+          }
+        }
       }
     })
+  }
+
+  navigateToDetail(songId: number) {
+    this.router.navigate(['/songs', songId]);
   }
 
   formatSongDuration(seconds: number): string {
