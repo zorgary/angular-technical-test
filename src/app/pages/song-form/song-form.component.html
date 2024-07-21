@@ -1,0 +1,175 @@
+<div class="main-content min-h-screen px-6 pb-8 sm:px-8 lg:px-12">
+    <ng-container *ngIf="!loading && !submitting; else loadingContent">
+        <div class="flex items-center mb-4">
+            <img (click)="goBack()" class="w-10 h-10 mr-6 cursor-pointer" src="assets/icons/go-back.svg" alt="Menu" />
+            <h1 class="text-4xl font-extrabold text-gray-900 mt-8 mb-8">
+                {{ (editing ? "song-form.editing-title" : "song-form.creating-title") | translate }}
+            </h1>
+        </div>
+        <form [formGroup]="songForm" (ngSubmit)="onSubmit()" class="space-y-4">
+            <!-- Title -->
+            <div class="flex flex-col mb-4">
+                <label for="title" class="font-semibold text-gray-700 mb-1">
+                    {{ "song-form.title" | translate }}
+                </label>
+                <input class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm 
+                    focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all 
+                    duration-300 ease-in-out w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                    id="title" type="text" pInputText formControlName="title" />
+                <p class="text-red-500" *ngIf="
+                    songForm.controls['title'].invalid &&
+                    songForm.controls['title'].touched
+                ">
+                    {{ "song-form.title-error" | translate }}
+                </p>
+            </div>
+
+            <!-- Artist -->
+            <div class="flex flex-col mb-4">
+                <label for="artist" class="font-semibold text-gray-700 mb-1">
+                    {{ "song-form.artist" | translate }}
+                </label>
+                <select 
+                id="artist"
+                class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm 
+                    focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all 
+                    duration-300 ease-in-out w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                formControlName="artist">
+                <option *ngFor="let artist of artists" [value]="artist.value">{{ artist.label }}</option>
+                </select>
+                <p class="text-red-500" *ngIf="
+                    songForm.controls['artist'].invalid &&
+                    songForm.controls['artist'].touched
+                ">
+                {{ "song-form.artist-error" | translate }}
+                </p>
+            </div>
+
+            <!-- Genres -->
+            <div class="flex flex-col mb-4">
+                <label class="font-semibold text-gray-700 mb-1">
+                    {{ "song-form.genres" | translate }}
+                </label>
+                <p-multiSelect [options]="genres" formControlName="genre" [filter]="false" [showClear]="true"
+                    class="form-select"></p-multiSelect>
+                <p class="text-red-500" *ngIf="
+                    songForm.controls['genre'].invalid &&
+                    songForm.controls['genre'].touched
+                ">
+                {{ "song-form.genres-error" | translate }}
+                </p>
+            </div>
+
+            <!-- recordLabels -->
+            <div class="flex flex-col mb-4">
+                <label class="font-semibold text-gray-700 mb-1">
+                    {{ "song-form.record-labels" | translate }}
+                </label>
+                <p-multiSelect [options]="recordLabels" formControlName="recordLabels" [filter]="false" [showClear]="true"
+                    class="form-select"></p-multiSelect>
+            </div>
+
+            <!-- Country -->
+            <div class="flex flex-col mb-4">
+                <label for="country" class="font-semibold text-gray-700 mb-1">
+                    {{ "song-form.country" | translate }}
+                </label>
+                <input id="country" formControlName="country" type="text" class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm 
+                    focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all 
+                    duration-300 ease-in-out w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl"/>
+                <p class="text-red-500" *ngIf="
+                    songForm.controls['country'].invalid &&
+                    songForm.controls['country'].touched
+                ">
+                {{ "song-form.country-error" | translate }}
+                </p>
+            </div>
+
+            <!-- Year -->
+            <div class="flex flex-col mb-4">
+                <label for="year" class="font-semibold text-gray-700 mb-1">
+                    {{ "song-form.year" | translate }}
+                </label>
+                <input class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm 
+                    focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all 
+                    duration-300 ease-in-out w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                    id="year" type="number" pInputText formControlName="year" [min]="1900" [max]="currentYear" />
+                <p class="text-red-500" *ngIf="
+                    songForm.controls['year'].invalid &&
+                    songForm.controls['year'].touched
+                ">
+                    {{ "song-form.year-error" | translate }}
+            </p>
+            </div>
+
+            <!-- Rating -->
+            <div class="flex flex-col mb-4">
+                <label for="rating" class="font-semibold text-gray-700 mb-1">
+                    {{ "song-form.rating" | translate }}
+                </label>
+                <input class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm 
+                    focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all 
+                    duration-300 ease-in-out w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                    id="rating" type="number" pInputText formControlName="rating" step="0.01" min="0" max="10" />
+                <p class="text-red-500" *ngIf="
+                    songForm.controls['rating'].invalid &&
+                    songForm.controls['rating'].touched
+                ">
+                {{ "song-form.rating-error" | translate }}
+                </p>
+            </div>
+
+            <!-- Poster URL -->
+            <div class="flex flex-col mb-4">
+                <label for="poster" class="font-semibold text-gray-700 mb-1">
+                    {{ "song-form.poster" | translate }}
+                </label>
+                <input class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm 
+                    focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all 
+                    duration-300 ease-in-out w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                    id="poster" type="text" pInputText formControlName="poster" />
+                <p class="text-red-500" *ngIf="
+                    songForm.controls['poster'].invalid &&
+                    songForm.controls['poster'].touched
+                ">
+                    {{ "song-form.poster-error" | translate }}
+                </p>
+            </div>
+
+            <!-- Duration -->
+            <div class="flex flex-col mb-4">
+                <label for="duration" class="font-semibold text-gray-700 mb-1">
+                    {{ "song-form.duration" | translate }}
+                </label>
+                <input class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm 
+                    focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all 
+                    duration-300 ease-in-out w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                    id="duration" type="number" pInputText formControlName="duration" [min]="0" [max]="1200" />
+                <p class="text-red-500" *ngIf="
+                    songForm.controls['duration'].invalid &&
+                    songForm.controls['duration'].touched
+                ">
+                    {{ "song-form.duration-error" | translate }}
+                </p>
+            </div>
+
+            <!-- Submit button -->
+            <div class="flex gap-4">
+                <button type="submit" class="btn-action btn-primary">
+                    {{ (editing ? 'song-form.update' : 'song-form.create') | translate }}
+                </button>
+            </div>
+        </form>
+    </ng-container>
+    <!-- Loading spinner -->
+    <ng-template #loadingContent>
+        <div class="flex flex-col justify-center items-center min-h-screen">
+            <p *ngIf="submitting && !editing" class="text-xl font-bold pb-6">{{'song-form.creation-in-progress' | translate }}</p>
+            <p *ngIf="submitting && editing" class="text-xl font-bold pb-6">{{'song-form.editing-in-progress' | translate }}</p>
+            <p-progressSpinner 
+            strokeWidth="3" 
+            animationDuration="1s" 
+            styleClass="w-4rem h-4rem" />
+        </div>
+    </ng-template>
+</div>

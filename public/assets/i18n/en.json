@@ -1,5 +1,68 @@
 {
-    "sample": {
-        "text" : "Hello world !"
+    "languages": {
+        "en": "English",
+        "es": "Spanish"
+    },
+    "header": {
+        "menu" : "Menu",
+        "links" : {
+            "home": "Home",
+            "songs": "Songs",
+            "artists": "Artists",
+            "record-labels": "Record Labels"
+        }
+    },
+    "home": {
+        "title": "Technical Test Project",
+        "description": "This project is designed to showcase proficiency in Angular by managing songs. It highlights practical skills and understanding of the technology.",
+        "linkedin-button": "LinkedIn"
+    },
+    "songs": {
+        "title": "Song List",
+        "year": "Year",
+        "not-found": "No songs found"
+    },
+    "song-details": {
+        "genres": "Genres",
+        "record-labels": "Record Labels",
+        "country": "Country",
+        "year": "Year",
+        "duration": "Duration",
+        "rating": "Rating",
+        "removal-confirm-title": "Confirm removal",
+        "removal-confirm-message": "Are you sure you want to remove this song? This action cannot be undone.",
+        "cancel-delete": "Cancel",
+        "confirm-delete": "Confirm",
+        "removal-in-progress": "Removing..."
+    },
+    "song-form": {
+        "editing-title": "Edit Song",
+        "creating-title": "Create Song",
+        "title": "Title",
+        "title-error": "Title is a required field",
+        "artist": "Artist",
+        "artist-error": "Artist is a required field",
+        "genres": "Genres",
+        "genres-error": "At least one genre is required",
+        "record-labels": "Record Labels",
+        "country": "Country",
+        "country-error": "Country is a required field",
+        "year": "Year",
+        "year-error": "Enter a valid year between 1900 and the current year",
+        "rating": "Rating",
+        "rating-error": "Rating must be between 0 and 10",
+        "poster": "Poster URL",
+        "poster-error": "Enter a valid URL",
+        "duration": "Duration (in seconds)",
+        "duration-error": "Duration must be a positive number from 0 to 1200 seconds",
+        "update": "Update",
+        "create": "Create",
+        "creation-in-progress": "Creating...",
+        "editing-in-progress": "Updating..."
+    },
+    "errors": {
+        "song-details": "Error: Could not retrieve song details",
+        "song-list": "Error: Could not retrieve the song list"
     }
+
 }

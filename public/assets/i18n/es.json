@@ -1,5 +1,67 @@
 {
-    "sample": {
-        "text" : "Hola mundo !"
+    "languages": {
+        "en": "Inglés",
+        "es": "Español"
+    },
+    "header": {
+        "menu" : "Menú",
+        "links" : {
+            "home": "Inicio",
+            "songs": "Canciones",
+            "artists": "Artistas",
+            "record-labels": "Discográficas"
+        }
+    },
+    "home": {
+        "title": "Proyecto de Prueba Técnica",
+        "description": "Este proyecto está diseñado para demostrar el dominio de Angular mediante la gestión de canciones. Resalta habilidades prácticas y comprensión de la tecnología.",
+        "linkedin-button": "LinkedIn"
+    },
+    "songs": {
+        "title": "Listado de Canciones",
+        "year": "Año",
+        "not-found": "No se han encontrado canciones"
+    },
+    "song-details": {
+        "genres": "Géneros",
+        "record-labels": "Discográficas",
+        "country": "País",
+        "year": "Año",
+        "duration": "Duración",
+        "rating": "Calificación",
+        "removal-confirm-title": "Confirmar eliminación",
+        "removal-confirm-message": "¿Estás seguro de que deseas eliminar esta canción? Esta acción no se puede deshacer.",
+        "cancel-delete": "Cancelar",
+        "confirm-delete": "Confirmar",
+        "removal-in-progress": "Eliminando..."
+    },
+    "song-form": {
+        "editing-title": "Editar Canción",
+        "creating-title": "Crear Canción",
+        "title": "Título",
+        "title-error": "El título es un campo obligatorio",
+        "artist": "Artista",
+        "artist-error": "El artista es un campo obligatorio",
+        "genres": "Géneros",
+        "genres-error": "Se requiere al menos un género",
+        "record-labels": "Discográficas",
+        "country": "País",
+        "country-error": "El país es un campo obligatorio",
+        "year": "Año",
+        "year-error": "Ingrese un año válido entre 1900 y el año actual",
+        "rating": "Calificación",
+        "rating-error": "La calificación debe estar entre 0 y 10",
+        "poster": "URL del Poster",
+        "poster-error": "Ingrese una URL válida",
+        "duration": "Duración (en segundos)",
+        "duration-error": "La duración debe ser un número positivo entre 0 y 1200 segundos",
+        "update": "Actualizar",
+        "create": "Crear",
+        "creation-in-progress": "Creando...",
+        "editing-in-progress": "Actualizando..."
+    },
+    "errors": {
+        "song-details": "Error: No se han podido obtener los detalles de la canción",
+        "song-list": "Error: No se ha podido obtener el listado de canciones"
     }
 }

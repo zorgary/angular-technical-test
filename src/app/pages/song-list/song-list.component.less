@@ -1,0 +1,97 @@
+/* song-list.component.less */
+:host ::ng-deep .p-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+:host ::ng-deep .p-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+  
+:host ::ng-deep .p-card-title {
+    height: 65px;
+    margin-bottom: 0;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+:host ::ng-deep .p-card-content {
+    height: 165px;
+}
+
+.artist-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+
+:host ::ng-deep .p-chip {
+    font-size: 12px;
+}
+
+:host ::ng-deep .p-chip-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    display: block;
+}
+
+.genre-chips {
+    display: flex;
+    flex-wrap: wrap;
+    height: 76px;
+    overflow: hidden;
+}
+  
+.genre-chips p {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+:host ::ng-deep .p-card-footer {
+    padding-top: 0;
+}
+
+.fixed-button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+}
+
+.btn-action {
+    padding: 18px 20px;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra aplicada */
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+  
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.action-icon {
+    width: 36px;
+    height: 36px;
+}
+
+@media (max-width: 500px) {
+    .action-icon {
+      width: 24px;
+      height: 24px;
+    }
+}
